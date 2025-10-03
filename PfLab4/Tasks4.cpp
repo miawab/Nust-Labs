@@ -2,22 +2,15 @@
 using namespace std;
 
 int main() {
-    int year;
-    bool leap = 0;
-    cout<<"input year: ";
-    cin>>year;
-    if (year%4 == 0) {
-        leap = 1;
-        if (year%100 == 0) {
-            leap = 0;
-        }
-    }
-    if (leap == 1) {
-        cout<<"is leap"<<endl;
+    int angle1, angle2, angle3;
+    cout<<"enter 3 angles: ";
+    cin>>angle1>>angle2>>angle3;
+    if (angle1+angle2+angle3 == 180) {
+        cout<<"it is a triangle"<<endl;
     } else {
-        cout<<"not leap"<<endl;
+        cout<<"not a triangle"<<endl;
     }
-    
 
+    
     return 0;
 }
