@@ -2,15 +2,15 @@
 using namespace std;
 
 int main() {
-    int angle1, angle2, angle3;
-    cout<<"enter 3 angles: ";
-    cin>>angle1>>angle2>>angle3;
-    if (angle1+angle2+angle3 == 180) {
-        cout<<"it is a triangle"<<endl;
+    int length, width, area, perimeter;
+    cout<<"enter length and width: ";
+    cin>>length>>width;
+    area = length*width;
+    perimeter = 2*(length + width) ;
+    if (area>length) {
+        cout<<"area > length"<<endl;
     } else {
-        cout<<"not a triangle"<<endl;
+        cout<<"area < length"<<endl;
     }
-
-    
     return 0;
 }
