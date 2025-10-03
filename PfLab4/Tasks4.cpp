@@ -2,25 +2,22 @@
 using namespace std;
 
 int main() {
-    int x, y, z, smallest, largest;
-    cout<<"input 3 numbers";
-    cin>>x>>y>>z;
-    largest = x;
-    smallest = z;
-    if (y>largest) {
-        largest = y;
+    int year;
+    bool leap = 0;
+    cout<<"input year: ";
+    cin>>year;
+    if (year%4 == 0) {
+        leap = 1;
+        if (year%100 == 0) {
+            leap = 0;
+        }
     }
-    if (z>largest) {
-        largest = z;
+    if (leap == 1) {
+        cout<<"is leap"<<endl;
+    } else {
+        cout<<"not leap"<<endl;
     }
-    if (y<smallest) {
-        smallest = y;
-    }
-    if (x<smallest) {
-        smallest = x;
-    }
-
-    cout<<"largest is: "<<largest<<"\nsmallest is:"<<smallest<<endl;
+    
 
     return 0;
 }
