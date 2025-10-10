@@ -1,14 +1,16 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int y;
+    int fixednum, guess;
+    fixednum = 7;
+    guess=0;
     do {
-        cout<<endl;
-        cout<<"Choose an option\n"<<endl;
-        cout<<"1.Add\n2.Subrtract\n3.Multiply\n0.Exit"<<endl;
-        cout<<endl<<"option: ";
-        cin>>y;
-    } while (y!=0);
-    
+        cout<<"Guess the number: ";
+        cin>>guess;
+        if (fixednum!=guess) {
+            cout<<"Try again"<<endl;
+        }
+    } while (fixednum!=guess);
+    cout<<"Correct, you win"<<endl;
     return 0;
 }
