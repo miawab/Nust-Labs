@@ -1,40 +1,72 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int daynum;
-    cout<<"enter number of day: ";
-    cin>>daynum;
-    switch (daynum) {
-        case 1:
-        cout<<"Saturday"<<endl;
-        break;
-
-        case 2:
-        cout<<"Sunday"<<endl;
-        break;
-
-        case 3:
-        cout<<"Monday"<<endl;
-        break;
-
-        case 4:
-        cout<<"Tuesday"<<endl;
-        break;
-
-        case 5:
-        cout<<"Wednesday"<<endl;
-        break;
-
-        case 6:
-        cout<<"Thursday"<<endl;
-        break;
-
-        case 7:
-        cout<<"Friday"<<endl;
-        break;
-
-        default:
-        cout<<"error"<<endl;
+    int lines=10;
+    int i=1;
+    int x=0;
+    while (i<=lines) {
+        x=0;
+        while (x<i) {
+            cout<<"*";
+            x++;
+        }
+        cout<<endl;
+        i++;
     }
+
+    cout<<endl;
+    i=10;
+        while (i>=0) {
+        x=0;
+        while (x<i) {
+            cout<<"*";
+            x++;
+        }
+        cout<<endl;
+        i--;
+    }
+
+
+    cout<<endl;
+    lines=10;
+    i=1;
+    x=0;
+    while (i<=lines) {
+        x=0;
+        while (x<i-1) {
+            cout<<" ";
+            x++;
+        }
+        x=0;
+        while(x<lines-i+1){
+            cout<<"*";
+            x++;
+        }
+        cout<<endl;
+        i++;
+
+    }
+
+    cout<<endl;
+    lines=10;
+    i=1;
+    x=0;
+    while (i<=lines) { 
+        x=0;
+        while(x<lines-i){
+            cout<<" ";
+            x++;
+        }
+        x=0;
+        while (x<i) {
+            cout<<"*";
+            x++;
+        }
+       
+        cout<<endl;
+        i++;
+
+    }
+
     return 0;
 }
