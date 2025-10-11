@@ -7,8 +7,9 @@ int main() {
     float dist, x1, x2;
     float lon, lat;
     float Llon, Llat;
-    Llon= 31;
-    Llat = 31;
+    bool attendance = 0;
+    Llon= 72.990345;
+    Llat = 33.645572;
 
     cout<<"enter first name: ";
     cin>>name;
@@ -28,7 +29,17 @@ int main() {
     } 
 
     dist = sqrt(pow((Llat-lat), 2) + pow((x1),2));
-    cout<<dist<<endl;
+
+    cout<<"you are "<<dist*111<<"km away from landmark."<<endl;
+
+    if (dist<0.5) {
+        attendance = 1;
+        cout<<"status: present"<<endl;
+    } 
+    else {
+        cout<<"status: absent"<<endl;
+    }
+
 
     return 0;
 }
