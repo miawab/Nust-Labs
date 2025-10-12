@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'SameerAlmas';
+    src: url('./fonts/AA\ Sameer\ Almas\ Regular\ -\ [UrduFonts.com].ttf') format("truetype");
+}
+
+body {
+    background-image: url('./images/bg.png');
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.urdu {
+    font-family: 'SameerAlmas';
+    direction:rtl;
+    unicode-bidi: embed;
+    font-size: 40px;
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 0%;
+    margin-top: 0%;
+    white-space: pre-wrap;
+    height: 80px;
+}
+
+.top-text {
+    color: blue;
+}
+.right-text {
+    color: rgb(218, 28, 28);
+}
+.left-text {
+    color: rgb(244, 81, 108)
+}
