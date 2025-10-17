@@ -2,13 +2,13 @@
 using namespace std;
 
 int main() {
-    int i;
-    for(i=1;i<300000001;i++) {
+    int n,i;
+    int factorial = 1;
+    cout<<"enter a number to find it\'s factorial: ";
+    cin>>n;
 
-        if(i%100000000 == 0) {
-            cout<<i/100000000<<endl;
-        }
-
+    for(i=0;i<n;i++) {
+        factorial= factorial*(i+1);
     }
+    cout<<factorial<<endl;
 }
-//2.30 seconds to count till 300,000,000
