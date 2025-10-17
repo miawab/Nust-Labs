@@ -2,13 +2,30 @@
 using namespace std;
 
 int main() {
-    int n,i;
-    int factorial = 1;
-    cout<<"enter a number to find it\'s factorial: ";
+    int n,i,j, sum;
+    bool prime = 1;
+    sum=0;
+
+    cout<<"Input: ";
     cin>>n;
 
-    for(i=0;i<n;i++) {
-        factorial= factorial*(i+1);
+    cout<<"Prime numbers:";
+
+    for (i=2;i<n;i++) {
+        prime = 1;
+
+        for(j=2;j<i;j++) {
+
+            if((i%j == 0)) {
+                prime = 0;
+            }
+        }
+
+        if (prime == 1) {
+                cout<<i<<", ";
+                sum= sum + i;
+            }
+
     }
-    cout<<factorial<<endl;
+    cout<<endl<<"sum is: "<<sum<<endl;
 }
