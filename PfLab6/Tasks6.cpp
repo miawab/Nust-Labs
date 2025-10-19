@@ -2,30 +2,25 @@
 using namespace std;
 
 int main() {
-    int n,i,j, sum;
-    bool prime = 1;
-    sum=0;
-
-    cout<<"Input: ";
+    int n, i, j;
+    cout<<"enter number of rows: ";
     cin>>n;
 
-    cout<<"Prime numbers:";
+    for (i=0;i<n;i++) {
 
-    for (i=2;i<n;i++) {
-        prime = 1;
-
-        for(j=2;j<i;j++) {
-
-            if((i%j == 0)) {
-                prime = 0;
-            }
+        for (j=n-i;j>1;j--) {
+            cout<<" ";
         }
 
-        if (prime == 1) {
-                cout<<i<<", ";
-                sum= sum + i;
-            }
+        for (j=0;j<i+1;j++) {
+            cout<<j+1;
+        }
 
+        for (j=i;j>0;j--) {
+            cout<<j;
+        }
+        cout<<endl;
     }
-    cout<<endl<<"sum is: "<<sum<<endl;
+
+    return 0;
 }
