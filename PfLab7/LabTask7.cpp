@@ -1,21 +1,20 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-int reversed (int num) {
-    int sum = 0;
-    while (num!=0) {
-        sum = sum*10 +(num%10);
-        num /= 10;
+bool is_prime (int num) {
+    for (int i=2; i<num ; i++){
+        if (num%i == 0) {
+            return 0;
+        }
     }
-    return sum;
-
+    return 1;
 }
 
 
 int main() {
-    int a;
-    cout<<"enter a number between 1 and 9999: ";
-    cin>>a;
-    cout<<reversed(a)<<endl;
+    for (int i=2; i<1000; i++) {
+        if (is_prime(i) == 1) {
+            cout<<i<<", ";
+        }
+    }
 }
