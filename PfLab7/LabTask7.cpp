@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-bool is_prime (int num) {
-    for (int i=2; i<num ; i++){
-        if (num%i == 0) {
-            return 0;
+int gcd (int num1, int num2) {
+    for (int i=num1; i>=2; i--) {
+        if (num1%i == 0 && num2%i == 0) {
+            return i;
         }
     }
-    return 1;
+    return 0;
 }
 
 
 int main() {
-    for (int i=2; i<1000; i++) {
-        if (is_prime(i) == 1) {
-            cout<<i<<", ";
-        }
-    }
+    int a, b;
+    cout<<"enter two digits: ";
+    cin>>a>>b;
+    cout<<gcd(a,b)<<endl;
+    
 }
