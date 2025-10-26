@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 
-void printsquare (int side) {
+void printsquare (int side, char fill) {
 
     for(int i=0;i<side; i++) {
         for(int j=0; j<side; j++) {
-            cout<<"*";
+            cout<<fill;
         }
         cout<<endl;
     }
@@ -13,9 +13,9 @@ void printsquare (int side) {
 
 
 int main() {
-    int a;
-    cout<<"enter a number: ";
-    cin>>a;
-    printsquare(a);
+    int a; char b;
+    cout<<"enter a number: ";cin>>a;
+    cout<<"enter a character: ";cin>>b;
+    printsquare(a,b);
     return 0;
 }
