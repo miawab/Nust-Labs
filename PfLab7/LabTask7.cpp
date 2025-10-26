@@ -1,21 +1,19 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-void printsquare (int side, char fill) {
+float hypotenuse (float side1, float side2) {
 
-    for(int i=0;i<side; i++) {
-        for(int j=0; j<side; j++) {
-            cout<<fill;
-        }
-        cout<<endl;
-    }
+    side1 = (pow(side1,2) + pow(side2,2));
+    side1 = sqrt(side1);
+
+    return side1;
 }
 
 
 int main() {
-    int a; char b;
-    cout<<"enter a number: ";cin>>a;
-    cout<<"enter a character: ";cin>>b;
-    printsquare(a,b);
-    return 0;
+    float a; float b;
+    cout<<"enter 2 sides of a triangle: ";
+    cin>>a>>b;
+    cout<<hypotenuse(a,b)<<endl;
 }
