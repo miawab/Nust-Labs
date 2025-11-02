@@ -1,17 +1,15 @@
 #include <iostream>
-using namespace std;
 
-float area(float r);
+void calculateSquare(int &num);
 
-int main(){  
-    float radius;
-    cout<<"Enter the radius : ";
-    cin>>radius;
-    area(radius);
-    cout<<"Area of Circle = "<<area(radius)<<endl;
-    return 0;
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+    calculateSquare(number); 
+    std::cout << "The square of the number is: " << number << std::endl; return 0;
 }
 
-float area(float r) {
-    return 3.14 * r * r;
+void calculateSquare(int &num){
+    num = num * num;
 }
