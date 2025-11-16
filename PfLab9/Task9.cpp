@@ -8,7 +8,7 @@ float productPrices[100];
 int productStock[100];
 int productCount = 0;
 
-// Order storage (Arqam)
+// Order storage, bill (Arqam)
 int orderIndex[100];
 int orderQty[100];
 int orderCount = 0;
@@ -79,7 +79,7 @@ void viewProducts() {
 // Arqam
 void placeOrder() {
     if (productCount == 0){
-        cout<<"NO STOCK AVAILABLE";
+        cout<<"NO STOCK AVAILABLE"<<endl;
         return;
     }
 
@@ -96,8 +96,10 @@ void placeOrder() {
     cout << "Enter quantity: ";
     cin >> quantity;
 
-    if (quantity > productStock[index]) return;
-
+    if (quantity > productStock[index]){ 
+        cout<<"Order exceeds existing stock!\norder within available quantity"<<endl;
+        return;
+    }
     productStock[index] -= quantity;
 
     orderIndex[orderCount] = index;
