@@ -4,24 +4,39 @@ using namespace std;
 
 int main(){
     int arr1[10];
-    int large = 0;
+    int arr2[10];    
+    int arr3[10];
+    int i3 = 0;
 
-    cout<<"enter number: ";
-    cin>>arr1[0];
+    cout<< "Enter 10 numbers for set 1: ";
+    for (int i = 0; i < 10; i++) 
+        cin >> arr1[i];
+    
+    cout << "Enter 10 numbers for set 2: ";
+    for (int i = 0; i < 10; i++) 
+        cin >> arr2[i];
 
-    for(int i = 1; i <10; i++) {
-        cout<<"enter number: ";
-        cin>>arr1[i];
-        if (large < arr1[i])
-            large = arr1[i];    
+
+    for(int i =0;i<10;i++){
+        for(int x=0;x<i3+1;x++){
+            if(arr1[i]==arr3[x]){
+            i++;
+            break;
+            }
+        }
+        for(int j=0;j<10;j++){
+            if (arr1[i] == arr2[j] ){
+                arr3[i3] = arr1[i];
+                i3++;
+                break;
+            }
+        }
     }
 
-    for (int i = 1; i<10; i++) {
-        if(arr1[i] != large)
-            continue;
-        cout<<large<<" is the largest num and "<<i<<" is it's index\n"<<endl;  
-        break;      
+    for(int x=0;x<i3;x++){
+        cout<<arr3[x]<<", ";
     }
+    cout<<endl;
 }
 
 
