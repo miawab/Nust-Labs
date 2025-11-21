@@ -1,29 +1,39 @@
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 int main() {
-    int arr1[20];
-    int arr2[20];
-    int x = 0;
+    char arr[10];
 
-    cout << "Enter 20 numbers for array: ";
-    for (int i = 0; i < 20; i++) {
-        cin >> arr1[i];
-        bool isDuplicate = false;
+    cout << "Enter 10 characters:\n";
+    for (int i = 0; i < 10; i++) {
+        cin >> arr[i];
+    }
 
-        for (int j = 0; j < x; j++) {
-            if (arr2[j] == arr1[i]) {
-                isDuplicate = true;
-                break;
-            }
+    int lowerCount = 0;
+    int upperCount = 0;
+    int digitCount = 0;
+    int specialCount = 0;
+
+    for (int i = 0; i < 10; i++) {
+        if (islower(arr[i])) {
+            lowerCount++;
         }
-        if (!isDuplicate) {
-            arr2[x] = arr1[i];
-            x++;
+        else if (isupper(arr[i])) {
+            upperCount++;
+        }
+        else if (isdigit(arr[i])) {
+            digitCount++;
+        }
+        else {
+            specialCount++;
         }
     }
-    for (int j = 0; j < x; j++) {
-        cout << arr2[j] << ", ";
-    }
-    cout<<endl;
+
+    cout << "\nLowercase: " << lowerCount << endl;
+    cout << "Uppercase: " << upperCount << endl;
+    cout << "Digits: " << digitCount << endl;
+    cout << "Special: " << specialCount << endl;
+
+    return 0;
 }
