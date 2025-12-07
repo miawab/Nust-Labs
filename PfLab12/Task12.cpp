@@ -1,27 +1,37 @@
 #include <iostream>
 using namespace std;
 int main(){
-    int arr[5][5];
-    cout<<"enter your 5 by 5 array: ";
-    for(int i =0; i<5; i++){
-        for(int j =0; j<5; j++){
-            cin>>arr[i][j];
+    int A[2][3];
+    int B[3][2];
+    int result[2][2];
+    cout<<"enter your 2 by 3 array: "<<endl;
+    for(int i =0; i<2; i++){
+        for(int j =0; j<3; j++){
+            cin>>A[i][j];
         }
     }
-
-    int check;
-    cout<<"enter a number to check in array: ";
-    cin>>check;
-
-    for(int i =0; i<5; i++){
-        for(int j =0; j<5; j++){
-            if(check == arr[i][j]) {
-                cout<<"row is "<<i<<" and column is "<<j<<endl;
-                break;
+    cout<<"enter your 3 by 2 array: "<<endl;
+    for(int i =0; i<3; i++){
+        for(int j =0; j<2; j++){
+            cin>>B[i][j];
+        }
+    }
+    cout<<endl;
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            result[i][j] = 0;
+            for(int k = 0; k < 3; k++){
+                result[i][j] += A[i][k] * B[k][j];
             }
         }
     }
-    cout<<"no more found"<<endl;
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            cout<<result[i][j]<<", ";
+        }
+        cout<<endl;
+    }
+
 
     return 0;
 }
