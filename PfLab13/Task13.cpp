@@ -3,43 +3,58 @@ using namespace std;
 
 int main(){
 
-    struct student {
-        char name[20];
-        int rollNo;
-        float marks1;
-        float marks2;
-        float marks3;
-        float total;
-        float percentage;
+    struct product {
+        int productID;
+        char productName[30];
+        float price;
+        int quantity;
+        float totalValue;
     };
 
-    int N = 5;
-    student s[N];
-    int highest = 0;
-    int* phighest = &highest;
+    int maxPrice = 0;
+    int maxValue = 0;
+    int N = 4;
+    product p[N];
+    
 
     for (int i = 0; i < N; i++) {
-        cout << "Enter name: ";
-        cin>>s[i].name;
-        cout << "Enter roll no: ";
-        cin >> s[i].rollNo;
-        cout << "Enter marks for subject 1: ";
-        cin >> s[i].marks1;
-        cout << "Enter marks for subject 2: ";
-        cin >> s[i].marks2;
-        cout << "Enter marks for subject 3: ";
-        cin >> s[i].marks3;
+        cout << "Enter productID: ";
+        cin >> p[i].productID;
+        cout << "Enter product name: ";
+        cin >> p[i].productName;
+        cout << "Enter price: ";
+        cin >> p[i].price;
+        cout << "Enter quantity: ";
+        cin >> p[i].quantity;
 
-        s[i].total = s[i].marks1 + s[i].marks2 + s[i].marks3;
-        s[i].percentage = s[i].total / 3.0;
+        p[i].totalValue = p[i].price * p[i].quantity;
 
-        if(s[i].percentage > s[highest].percentage) {
-            *phighest = i;
+        if (p[i].price > p[maxPrice].price){ 
+            maxPrice = i;
+        }
+        if (p[i].totalValue > p[maxValue].totalValue){
+            maxValue = i;
         }
 
         cout << endl;
     }
-    cout<<"Student with highest percentage is "<<s[highest].name;
-    cout<<"("<<s[highest].percentage<<")"<<endl;
+
+    cout << "ID\tName\t\tPrice\tQty\tTotal Value\n";
+    cout << "--------------------------------------------------------\n";
+
+    for (int i = 0; i < N; ++i) {
+        cout << p[i].productID << "\t"
+             << p[i].productName << "\t\t"
+             << p[i].price << "\t"
+             << p[i].quantity << "\t"
+             << p[i].totalValue << "\n";
+    }
+
+    cout << "\nMost expensive product: " << p[maxPrice].productName
+         << " (ID: " << p[maxPrice].productID << ", Price: " << p[maxPrice].price << ")\n";
+
+    cout << "Product with largest stock value: " << p[maxValue].productName
+         << " (ID: " << p[maxValue].productID << ", Total Value: " << p[maxValue].totalValue << ")\n";
+
     return 0;
 }
