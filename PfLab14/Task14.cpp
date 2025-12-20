@@ -21,10 +21,10 @@ int main() {
     for (; p < end; ++p) {
         cin >> *p;
     }
+    reverseUsingPointers(arr,n);
     cout << "After reverse: ";
     p = arr;
     for (; p < end; ++p) cout << *p << ' ';
     cout << '\n';
-
     return 0;
 }
