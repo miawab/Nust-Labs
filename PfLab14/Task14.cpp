@@ -1,29 +1,30 @@
 #include <iostream>
 using namespace std;
 
-void inputArrayPointer(int arr[], int size) {
+void reverseUsingPointers(int arr[], int size) {
+    int *start = arr;
+    int *end = arr + size - 1;
+    while (start < end) {
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
+    }}
+
+int main() {
+    const int n = 10;
+    int arr[n];
+    cout << "Enter 10 integers:\n";
     int *p = arr;
-    int *end = arr + size;
+    int *end = arr + n;
     for (; p < end; ++p) {
         cin >> *p;
     }
-}
-
-void printArrayPointer(int arr[], int size) {
-    int *p = arr;
-    int *end = arr + size;
-    for (; p < end; ++p) {
-        cout << *p << ' ';
-    }
+    cout << "After reverse: ";
+    p = arr;
+    for (; p < end; ++p) cout << *p << ' ';
     cout << '\n';
-}
 
-int main() {
-    int arr[10];
-    int n = 10;
-    cout << "Enter 10 integers:\n";
-    inputArrayPointer(arr, n);
-    cout << "Array contents: ";
-    printArrayPointer(arr, n);
     return 0;
 }
