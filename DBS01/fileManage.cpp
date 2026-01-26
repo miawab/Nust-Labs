@@ -4,69 +4,37 @@
 using namespace std;
 int main(){
     int i;
-    int intSize;
-    int floatSize;
-    cout<<"enter int array size: ";
-    cin>>intSize;
-    cout<<"enter float array size: ";
-    cin>>floatSize;
+    int size;
+    cout<<"enter array size: ";
+    cin>>size;
 
-    int* intArr = new int[intSize];
-    float* floatArr = new float[floatSize];
+    int* arr = new int[size];
 
-    cout<<"int Array:"<<endl;
-    for(i = 0;i<intSize;i++){
+    for(i = 0;i<size;i++){
         cout<<"enter "<<i+1<<"th item of array: ";
-        cin>>*(intArr+i);
-    }
-    cout<<"float Array:"<<endl;
-    for(i = 0;i<floatSize;i++){
-        cout<<"enter "<<i+1<<"th item of array: ";
-        cin>>*(floatArr+i);
+        cin>>*(arr+i);
     }
 
-    ofstream writefile("text.txt");
-    writefile<<intSize<<endl;
-    for(i = 0; i<intSize;i++){
-        writefile<<*(intArr+i)<<endl;
-    }
-    writefile<<floatSize<<endl;
-    for(i = 0; i<floatSize;i++){
-        writefile<<*(floatArr+i)<<endl;
-    }
+    ofstream writefile("array.bin", ios::binary);
+    writefile.write((char*)&size, sizeof(size));
+    writefile.write((char*)arr, size * sizeof(int));
     writefile.close();
-    delete[] intArr;
-    delete[] floatArr;
+    delete[] arr;
 
     string item;
 
-    ifstream readfile("text.txt");
-    int integer;
-    float floatnum;
+    ifstream readfile("array.bin", ios::binary);
 
-    getline(readfile,item);
-    int size = stoi(item);
-    int* intArr2 = new int[size];
-    for(int i=0;i<size;i++){
-        getline(readfile,item);
-        integer = stoi(item);
-        *(intArr2+i)= integer;
-    }
-    cout<<"int Array"<<endl;
-    for(i = 0;i<size;i++){
-        cout<<*(intArr2+i)<<endl;
-    }
+    int newSize;
+    readfile.read((char*)&newSize, sizeof(newSize));
 
-    getline(readfile,item);
-    size = stoi(item);
-    float* floatArr2 = new float[floatSize];
-    for(int i=0;i<size;i++){
-        getline(readfile,item);
-        floatnum = stof(item);
-        *(floatArr2+i)= floatnum;
+    int* arr2 = new int[newSize];
+    readfile.read((char*)arr2, newSize * sizeof(int));
+    readfile.close();
+
+    cout << "Array: "<<endl;
+    for(i = 0; i < newSize; i++){
+        cout << *(arr2 + i) << endl;
     }
-    cout<<"int float"<<endl;
-    for(i = 0;i<size;i++){
-        cout<<*(floatArr2+i)<<endl;
-    }
+    delete[] arr2;
 }
