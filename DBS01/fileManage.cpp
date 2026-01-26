@@ -3,38 +3,43 @@
 #include <string>
 using namespace std;
 int main(){
-    int i;
-    int size;
-    cout<<"enter array size: ";
-    cin>>size;
+    int i, n;
+    cout << "Enter number of arrays: ";
+    cin >> n;
 
-    int* arr = new int[size];
+    ofstream writefile("arrays.bin", ios::binary);
 
-    for(i = 0;i<size;i++){
-        cout<<"enter "<<i+1<<"th item of array: ";
-        cin>>*(arr+i);
+    for(int a = 0; a < n; a++){
+        int size;
+        cout << "Enter size of array " << a+1 << ": ";
+        cin >> size;
+
+        int* arr = new int[size];
+        for(i = 0; i < size; i++){
+            cout << "Enter " << i+1 << "th item of array " << a+1 << ": ";
+            cin >> *(arr+i);
+        }
+
+        writefile.write((char*)&size, sizeof(size));
+        writefile.write((char*)arr, size * sizeof(int));
+        delete[] arr;
     }
-
-    ofstream writefile("array.bin", ios::binary);
-    writefile.write((char*)&size, sizeof(size));
-    writefile.write((char*)arr, size * sizeof(int));
     writefile.close();
-    delete[] arr;
 
-    string item;
+    ifstream readfile("arrays.bin", ios::binary);
+    int arrayCount = 0;
+    while(readfile.peek() != EOF){
+        int newSize;
+        readfile.read((char*)&newSize, sizeof(newSize));
+        int* arr2 = new int[newSize];
+        readfile.read((char*)arr2, newSize * sizeof(int));
 
-    ifstream readfile("array.bin", ios::binary);
-
-    int newSize;
-    readfile.read((char*)&newSize, sizeof(newSize));
-
-    int* arr2 = new int[newSize];
-    readfile.read((char*)arr2, newSize * sizeof(int));
-    readfile.close();
-
-    cout << "Array: "<<endl;
-    for(i = 0; i < newSize; i++){
-        cout << *(arr2 + i) << endl;
+        cout << "Array " << arrayCount+1 << ": " << endl;
+        for(i = 0; i < newSize; i++){
+            cout << *(arr2 + i) << endl;
+        }
+        delete[] arr2;
+        arrayCount++;
     }
-    delete[] arr2;
+    readfile.close();
 }
