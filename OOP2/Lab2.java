@@ -1,8 +1,8 @@
 public class Lab2 {
     public static void main(String[] args)
     {
-        int a = 3;
-        int square = a*a;
-        System.out.println("square of "+a+" is "+square);
+        int celcius = 30;
+        int fahrenheit = (celcius*9/5)+32;
+        System.out.println(celcius+" celcius is "+fahrenheit+" fahrenheit");
     }
 }
