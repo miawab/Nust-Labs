@@ -1,10 +1,12 @@
 public class Lab2 {
     public static void main(String[] args)
     {
-        int p = 100;
-        int r = 10;
-        int t = 2;
-        int interest = (p*r*t)/100;
-        System.out.println("Interest is "+ interest);
+        int a = 3;
+        int b = 5;
+        System.out.println("a is "+a+" b is "+b);
+        int temp = a;
+        a = b;
+        b = temp;
+        System.out.println("a is "+a+" b is "+b);
     }
 }
