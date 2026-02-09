@@ -1,26 +1,15 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter loan amount: ");
-        double loan = sc.nextDouble();
+        int count = 0;
 
-        System.out.print("Enter years: ");
-        int years = sc.nextInt();
-
-        for(double rate =5;rate<=10;rate+=0.25){
-
-            double monthlyRate = rate / 1200;
-            int months = years * 12;
-
-            double monthlyPayment = loan * monthlyRate /
-            (1 - 1 / Math.pow(1 + monthlyRate, months));
-
-            double totalPayment = monthlyPayment * months;
-
-            System.out.println(rate + " " + monthlyPayment + " " + totalPayment);
+        for(int i =1;i<=7;i++){
+            for(int j =i+1;j<=7;j++){
+                System.out.println(i + " " + j);
+                count++;
+            }
         }
+
+        System.out.println("Total: " + count);
     }
 }
