@@ -4,26 +4,23 @@ public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter number of students: ");
-        int n = sc.nextInt();
+        System.out.print("Enter loan amount: ");
+        double loan = sc.nextDouble();
 
-        String topName = "";
-        int topScore = 0;
+        System.out.print("Enter years: ");
+        int years = sc.nextInt();
 
-        for(int i =0;i<n;i++){
-            System.out.print("Enter name: ");
-            String name = sc.next();
+        for(double rate =5;rate<=10;rate+=0.25){
 
-            System.out.print("Enter score: ");
-            int score = sc.nextInt();
+            double monthlyRate = rate / 1200;
+            int months = years * 12;
 
-            if(score > topScore){
-                topScore = score;
-                topName = name;
-            }
+            double monthlyPayment = loan * monthlyRate /
+            (1 - 1 / Math.pow(1 + monthlyRate, months));
+
+            double totalPayment = monthlyPayment * months;
+
+            System.out.println(rate + " " + monthlyPayment + " " + totalPayment);
         }
-
-        System.out.println("Top student: " + topName);
-        System.out.println("Highest score: " + topScore);
     }
 }
