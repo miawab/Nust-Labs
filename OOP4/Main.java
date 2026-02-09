@@ -1,23 +1,22 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter s0: ");
-        double s0 = sc.nextDouble();
+        double tuition = 10000;
+        double rate = 0.06;
 
-        System.out.print("Enter v0: ");
-        double v0 = sc.nextDouble();
+        for(int i =0;i<10;i++){
+            tuition = tuition + tuition * rate;
+        }
 
-        System.out.print("Enter a: ");
-        double a = sc.nextDouble();
+        System.out.println("Tuition after 10 years: " + tuition);
 
-        System.out.print("Enter t: ");
-        double t = sc.nextDouble();
+        double total = 0;
 
-        double s = s0 + v0*t + 0.5*a*t*t;
+        for(int i =0;i<4;i++){
+            total = total + tuition;
+            tuition = tuition + tuition * rate;
+        }
 
-        System.out.println("s = " + s);
+        System.out.println("Total cost of 4 years: " + total);
     }
 }
